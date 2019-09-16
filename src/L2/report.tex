@@ -292,6 +292,30 @@ Richard Dawkins''\\
     \end{table}
     
     Расшифрованный текст --- KORYTOVPAVELVALERIEVICH --- совпадает с исходным
+
+    \item Проведена проверка различных параметров утилиты. 
+    В целом в утилите для каждого шага настраиваются следующие параметры:
+    \begin{itemize}
+        \item Перестановка. Длина перестановки определяет число строк/столбцов на данном шаге
+        \item Как читать --- по строкам / по столбцам
+        \item Как переставлять --- по строка / по столбцам
+        \item Как выводить\\
+    \end{itemize}
+
+    Вывод с первого трансформируется в строку и подставляется во второй. Как видно, утилита проводит не транпозицию матрицы, а чтение по столбцам и запись по строкам (или наоборот, или нет --- в зависимости от настроек).\\ 
+    Подобная операция не идентична транспозиции, если в матрице есть пустые места (не пробелы).Этим обусловлены операции предыдущего пункта.\\
+
+    \item Зашифрован текст KORYTOVPAVELVALERIEVICH с ключом FCK.\@ Проведена атака для выяснения ключа по исходному тексту. Результаты на рисунке~\ref{img:2:3}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.7\textwidth]{./img/S009.jpg}
+        \caption{Результаты расшифровки ключа}%
+        \label{img:2:3}
+    \end{figure}
+    
+    \item Зашифровано сообщение: ``DEAR GOD WAR IS HELL THANKS.''\\
+    Шифротекст --- ``RDR LAAOASLHSEGWIETKD H N''
+    
 \end{enumerate}
 
 \FloatBarrier{}
@@ -306,23 +330,83 @@ Richard Dawkins''\\
 \end{itemize}
 
 \subsection{Формулировка задания}
-\begin{itemize}
+\begin{enumerate}
     \item Найти шифр в CrypTool 1: Encrypt/Decrypt-> Symmetric (Classic).
     \item Зашифровать и расшифровать текст, содержащий только фамилию (транслитерация латиницей) вручную и с помощью шифра c выбранным ключом. Убедиться в совпадении результатов.
     \item Произвести атаку на шифротекст, используя приложение Analysis-> Symmetric Encryption (Classic)-> Cipher Text Only->Vigenere.
-    \item Повторить атаку для фрагмента текста из файла English.txt (папка CrypTool/reference). Размер текста не менее 1000 символов.
+    \item Повторить атаку для фрагмента текста из файла English.txt (папка CrypTool / reference). Размер текста не менее 1000 символов.
     \item Воспроизведите эту атаку в автоматизированном режиме: 
     \begin{itemize}
         \item Определите размер ключа с помощью приложения Analysis-> Tools for Analysis-> Autocorrelation
         \item Выполните перестановку текста с размером столбца равным размеру ключа приложением Permutation/Transposition
-        \item Определите очередную букву ключа приложением Analysis-> Symmetric Encryption (Classic)-> Cipher Text Only->Caesar.
+        \item Определите очередную букву ключа приложением Analysis-> Symmetric Encryption (Classic)-> Cipher Text Only -> Caesar.
     \end{itemize}
     \item Самостоятельно изучите атаки, реализованные CrypTool 2,
 опираясь на Help и ссылки на статьи.
-\end{itemize}
+\end{enumerate}
 
 \subsection{Ход работы}
-\lipsum[1]
+\begin{enumerate}
+    \item Найден шифр в CrypTool 1. Параметры шифра на рисунке~\ref{img:3:1}.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.7\textwidth]{./img/S010.jpg}
+        \caption{Параметры шифра Виженера}%
+        \label{img:3:1}
+    \end{figure}
+    
+    \item Текст --- KORYTOV, ключ --- PAVEL.\@ Таблица соответствия букв и цифр для английского языка:\@
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{@{}lllllllllllll@{}}
+        \toprule
+        \textbf{A} & \textbf{B} & \textbf{C} & \textbf{D} & \textbf{E} & \textbf{F} & \textbf{G} & \textbf{H} & \textbf{I} & \textbf{J} & \textbf{K} & \textbf{L} & \textbf{M} \\
+        \textit{0} & \textit{1} & \textit{2} & \textit{3} & \textit{4} & \textit{5} & \textit{6} & \textit{7} & \textit{8} & \textit{9} & \textit{10} & \textit{11} & \textit{12} \\ \midrule
+        \textbf{N} & \textbf{O} & \textbf{P} & \textbf{Q} & \textbf{R} & \textbf{S} & \textbf{T} & \textbf{U} & \textbf{V} & \textbf{W} & \textbf{X} & \textbf{Y} & \textbf{Z} \\
+        \textit{13} & \textit{14} & \textit{15} & \textit{16} & \textit{17} & \textit{18} & \textit{19} & \textit{20} & \textit{21} & \textit{22} & \textit{23} & \textit{24} & \textit{25} \\ \bottomrule
+        \end{tabular}
+    \end{table}
+    
+    Шифрование:
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{@{}llllllll@{}}
+        \toprule
+        Текст & \textbf{K} & \textbf{O} & \textbf{R} & \textbf{Y} & \textbf{T} & \textbf{O} & \textbf{V} \\
+        Ключ & \textit{P} & \textit{A} & \textit{V} & \textit{E} & \textit{L} & \textit{P} & \textit{A} \\ \midrule
+        $P_i$ & \textbf{10} & \textbf{14} & \textbf{17} & \textbf{24} & \textbf{19} & \textbf{14} & \textbf{21} \\
+        $G_i$ & \textit{15} & \textit{0} & \textit{21} & \textit{4} & \textit{11} & \textit{15} & \textit{0} \\ \midrule
+        $C_i = (P_i + G_i) \bmod 26$ & 25 & 14 & 12 & 2 & 4 & 3 & 21 \\
+        Шифротекст & Z & O & M & C & E & D & V \\
+        \bottomrule
+    \end{tabular}
+    \end{table}
+    
+    \FloatBarrier{}
+    Расшифрование:
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{@{}llllllll@{}}
+        \toprule
+        Шифротекст & Z & O & M & C & E & D & V \\
+        Ключ & \textit{P} & \textit{A} & \textit{V} & \textit{E} & \textit{L} & \textit{P} & \textit{A} \\ \midrule
+        $C_i$ & 25 & 14 & 12 & 2 & 4 & 3 & 21 \\
+        $G_i$ & \textit{15} & \textit{0} & \textit{21} & \textit{4} & \textit{11} & \textit{15} & \textit{0} \\ \midrule
+        $P_i = (C_i - G_i) \bmod 26$ & \textbf{10} & \textbf{14} & \textbf{17} & \textbf{24} & \textbf{19} & \textbf{14} & \textbf{21} \\
+        Текст & \textbf{K} & \textbf{O} & \textbf{R} & \textbf{Y} & \textbf{T} & \textbf{O} & \textbf{V} \\
+        \bottomrule
+        \end{tabular}
+    \end{table}
+    \item Для короткого шифротекста атака не выходит, т.к. мало данных для частотного анализа. Тем не менее, длина ключевого слова была установлена верно
+    \item Повторена атака для 1000 символов из English.txt. Атака выполнена успешно. Результаты на рисунке~\ref{img:3:2}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\textwidth]{./img/S011.jpg}
+        \caption{Атака на шифр Виженера}%
+        \label{img:3:2}
+    \end{figure}
+    
+\end{enumerate}
 
 \section*{Выводы}
 
