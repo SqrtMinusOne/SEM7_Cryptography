@@ -308,7 +308,7 @@ Richard Dawkins''\\
     \item Зашифрован текст KORYTOVPAVELVALERIEVICH с ключом FCK.\@ Проведена атака для выяснения ключа по исходному тексту. Результаты на рисунке~\ref{img:2:3}
     \begin{figure}[h]
         \centering
-        \includegraphics[width=0.7\textwidth]{./img/S009.jpg}
+        \includegraphics[width=\textwidth]{./img/S009.jpg}
         \caption{Результаты расшифровки ключа}%
         \label{img:2:3}
     \end{figure}
@@ -405,12 +405,84 @@ Richard Dawkins''\\
         \caption{Атака на шифр Виженера}%
         \label{img:3:2}
     \end{figure}
+    \item Проведена атака на шифр.
+    \begin{itemize}
+        \item Получена функция автокорелляции. Результат --- на рисунке~\ref{img:3:3}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=\textwidth]{./img/S012.jpg}
+            \caption{Функция автокорреляции}%
+            \label{img:3:3}
+        \end{figure}
+        
+        Как видно, функция больше в числах, кратных 5. Значит 5 --- длина ключа
+    \item Выполнена Permutation / Transposition с ключом ABCDE.\@ Таким образом, сгруппированы части текста, зашифрованные одной буквой. Результаты на рисунке~\ref{img:3:4}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=\textwidth]{./img/S018.jpg}
+            \caption{Разбиение шифротекста. Против часовой стрелки --- фрагменты текста, зашифрованные одной частью ключа}%
+            \label{img:3:4}
+        \end{figure}
+        \FloatBarrier{}
+    \item На каждую часть шифротекста проведена атака, аналогичная атаке на шифр Цезаря. Результаты на рисунке~\ref{img:3:5}
+    \begin{figure}[h]
+        \centering
+        \begin{subfigure}[b]{0.3\textwidth}
+        	\includegraphics[width=\textwidth]{img/S013.jpg}
+        	\caption{Первый символ ключа}
+        \end{subfigure}%
+        \hspace{0.5cm}
+        \begin{subfigure}[b]{0.3\textwidth}
+        	\includegraphics[width=\textwidth]{img/S014.jpg}
+        	\caption{Второй символ ключа}
+        \end{subfigure}%
+        \hspace{0.5cm}
+        \begin{subfigure}[b]{0.3\textwidth}
+        	\includegraphics[width=\textwidth]{img/S015.jpg}
+        	\caption{Третий символ ключа}
+        \end{subfigure}%
+        \hspace{0.5cm}
+        \begin{subfigure}[b]{0.3\textwidth}
+        	\includegraphics[width=\textwidth]{img/S016.jpg}
+        	\caption{Четвертый символ ключа}
+        \end{subfigure}%
+        \hspace{0.5cm}
+        \begin{subfigure}[b]{0.3\textwidth}
+        	\includegraphics[width=\textwidth]{img/S017.jpg}
+        	\caption{Пятый символ ключа}
+        \end{subfigure}
+        \caption{Атака Цезарей}%
+        \label{img:3:5}
+    \end{figure}
     
+    Полученный ключ --- `` FDMC''. С поправкой на смещение в реализации шифра Цезаря, принятой в CrypTool, ключ --- ``AGEND''. Это совпадает с исходным ключом
+
+    \end{itemize}
 \end{enumerate}
 
+\newpage
 \section*{Выводы}
 
+\begin{table}[h]
+    \begin{tabularx}{\textwidth}{@{}XXXX@{}}
+    \toprule
+    \textbf{Название шифра} & \textbf{Тип шифра} & \textbf{Ключ} & \textbf{Сложность brute force} \\ \midrule
+    \textit{Substitution} & Замена & Кодовое слово, смещение & $o(\Factorial{n})$ \\
+    \textit{\begin{tabular}[c]{@{}l@{}}Permutation\\ / Transposition\end{tabular}} & Перестановка & Перестановки & $o(\Factorial{m} \times \Factorial{n})$ \\
+    \textit{Vigenere} & Замена & Кодовое слово & $o(\Factorial{n} \times \Factorial{(n-m)})$ \\ \bottomrule
+    \end{tabularx}
+\end{table}
+
+Изучены и проведены атаки на шифры Substitution, Permutation / Transposition и Vigenere.
+
+Шифр Substitution --- простой шифр на основе замены алфавита; взлом его с помощью частотного анализа не составляет труда.
+
+Шифры Permutation / Transposition и Vigenere --- более криптостойкие. Тем не менее, в современных условия их эффективный взлом возможен --- с помощью поиска запретных биграмм и функции автокорреляции соответственно.
+
+С развитием формальной криптографии изученные шифры потеряли эффективность; уже в ходе Гражданской Войны в США шифр Виженера регулярно расшифровывался, а Permutation / Transposition стал быстро взламываться в начале Первой Мировой.
+
 Использованное ПО --- CrypTool 1 / CrypTool 2 в VirtualBox, neovim и \XeLaTeX{} для написания отчета.
+
 
 
 \end{document}
