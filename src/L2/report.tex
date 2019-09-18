@@ -466,10 +466,21 @@ Richard Dawkins''\\
 \begin{table}[h]
     \begin{tabularx}{\textwidth}{@{}XXXX@{}}
     \toprule
-    \textbf{Название шифра} & \textbf{Тип шифра} & \textbf{Ключ} & \textbf{Сложность brute force} \\ \midrule
-    \textit{Substitution} & Замена & Кодовое слово, смещение & $o(\Factorial{n})$ \\
-    \textit{\begin{tabular}[c]{@{}l@{}}Permutation\\ / Transposition\end{tabular}} & Перестановка & Перестановки & $o(\Factorial{m} \times \Factorial{n})$ \\
-    \textit{Vigenere} & Замена & Кодовое слово & $o(\Factorial{n} \times \Factorial{(n-m)})$ \\ \bottomrule
+    \textbf{Название шифра} & \textbf{Тип шифра} & \textbf{Ключ} \\ \midrule
+    \textit{Substitution} & Замена & Кодовое слово, смещение \\
+    Permutation / Transposition & Перестановка & Перестановки  \\
+    \textit{Vigenere} & Замена & Кодовое слово \\ \bottomrule
+    \end{tabularx}
+\end{table}
+
+\begin{table}[h]
+    \begin{tabularx}{\textwidth}{@{}XX@{}}
+        \toprule
+        \textbf{Название шифра} & \textbf{Сложность brute force} \\ \midrule
+        \textit{Substitution} & $o(\Factorial{n})$, где $n$ --- мощность алфавита \\
+        \textit{Permutation / Transposition} & $ o(\Factorial{m} \times \Factorial{n})$, где $m, n$ --- количество строк и столбцов матрицы \\
+        \textit{Vigenere} & $o(n^m)$, где $n$ --- мощность алфавита, $m$ --- длина ключа. Если последняя неизвестна, то длина сообщения. \\
+        \bottomrule
     \end{tabularx}
 \end{table}
 
@@ -482,7 +493,6 @@ Richard Dawkins''\\
 С развитием формальной криптографии изученные шифры потеряли эффективность; уже в ходе Гражданской Войны в США шифр Виженера регулярно расшифровывался, а Permutation / Transposition стал быстро взламываться в начале Первой Мировой.
 
 Использованное ПО --- CrypTool 1 / CrypTool 2 в VirtualBox, neovim и \XeLaTeX{} для написания отчета.
-
 
 
 \end{document}
