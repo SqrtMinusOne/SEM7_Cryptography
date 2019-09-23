@@ -220,7 +220,7 @@
         
     Результат: \texttt{HCLQ GL ZCSVLGA BZOSZ KEPXXOBLYOT SMYLO AQJ TCTI JLWO}
 
-    \item Проведена атака на основе открытого текста текста. Результаты на
+\item Проведена атака на основе открытого текста текста. Результаты на рисунке~\ref{img:1:3}
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.8\textwidth]{./img/S004.jpg}
@@ -239,9 +239,11 @@
     \item Коллеге для дешифрования передано следующее сообщение: \texttt{LADIES AND GENTELMEN YOU HAVE WRONG UNDERSTANDING OF REASON AND THEREFORE THINK YOU EXIST FOR NO REASON THANK YOU}. Ключ --- \texttt{YJ PU}.
     Шифротекст: \texttt{XEHSCK IXN CEJDINWEJ UMG JKJQ QBEDG OFTMPKPCZVAVM KR FEWAUV KZV HTSPCXITM FDERM UMC YNAYV NUR JI TEWAUD TBSRM UMEX} 
 
-    \item Дешифрование полученного текста:
+    \item Получен следующий шифротекст: \texttt{GYHBPUMH XJZHEITSIWUJEFMLVGCQJLBENCMIIXTRRDZANIUTRRKGEXHOLEKEXQT IEFEWOTVFRY XWDETLYOOA}.
 
-    \lipsum[1] % TODO
+    По паре открытый текст / шифротекст --- \texttt{LADIES AND GENTELM} / \texttt{GYHBPUMH XJZHEITSI} --- восстановлен ключ --- матрица $3\times3$ \texttt{I J F L C J M Y D}. 
+
+    Дешифрованный открытый текст: \texttt{LADIES AND GENTLEMEN WELCOME TO THE FIRST SATANIST TEMPLE ININIATION CEREMONY THANK YOU}. 
 
 \end{enumerate}
 
@@ -393,7 +395,19 @@
 
     \item Дешифрование полученного текста
         
-    \lipsum[1] % TODO
+        От коллеги получен шифротекст: ``\texttt{FFGXX DFXDD DVDXA FFGFF DGDFV XFADD AAADX DDDAD DDFDD FVDXA VAXGX FXADF AFXGF VAGFF AVGGX DFFAF AXVFD FAFAG FDAAG AGFFD FADFD FFDGD AADFA GAGFD FFFFF DFAGD ADFAA FDFFD DGDAG FDAAA GADFG AAGFD AGGFF DADGF ADDGG AAAGF FAAFF AFGFD DGDDF GFFFA GAGAF AAFGA FDDDG AAFGA DAGAA GDDDG AAFAA AFGFA FAGAF FAADD FAVDV FFVFG VVDXF VADDV AAFFA DFXXA FAXXA VDAFV AFDVX FXVDV VXAAX ADFVV FDDFG VXAVV AAGVF VDVFX VXFXD A}''
+
+    С помощью атаки по словарю CrypTool2 сообщение восстановлено.
+
+    \texttt{IWONDERIFITWOULDBEBETTERTOREMAINONDEIMOSHOPINGITWILLCRASHONMARSFASTERTHANONEMANONTHEORBITLIKETHEREARESMALLPARTICLESWHICHSHOULDDECREASEDEIMOSSPEEDOVERTHECOURSEOFMILLENIA}.
+
+    Расставлены пробелы:
+
+    \texttt{I WONDER IF IT WOULD BE BETTER TO REMAIN ON DEIMOS HOPING IT WILL CRASH ON MARS FASTER THAN ONE MAN ON THE ORBIT LIKE THERE ARE SMALL PARTICLES WHICH SHOULD DECREASE DEMOS SPEED OVER THE COURSE OF MILLENIA} 
+
+    Атака заняла продолжительное время; потребовался подбор длины ключа. Было отвергнуто несколько вариантов, которые расшифровывали текст бессмысслицу.
+
+    Предположительно, текст описывает возможности схода со стабильной орбиты Марса без использования реактивной тяги.
 
 \end{enumerate}
 
@@ -479,11 +493,15 @@
 
     Коллеге переданы следующие слова сначала: \texttt{INCAPITALISTSOCIETYUNDERTHE} 
 
-    \item Дешифрование полученного текста:
+    \item Получен шифротекст: \texttt{SK CS ON AT PU OA NS UR OK OM AQ SU NO PN PY MO GI BH NR CR SK IA KI CA PC AV EI SK BA MO BA NR CB YI ON IQ HY NA RC SC YE RK HM IP QE OM HC SK CU AD UW VD SC SF RS NR ZQ SH OM AN AT HI IU HI KL NU SE MK CS SH DI BS BU QO CA ZC UO MR SV SK CE HY QN AP SC WQ IA UC CK IH AB CZ ID NO BV ED RH TQ HE AL NE LC MK EY RS EY QC IP YO HN TL SH ZH US QZ SK CU OD MO AN LC MR SK CE HY LC AT SC RH SK HA UF MK IA NR LV HY YH WQ IA UC CK IH SE TL NS ER PL FA BF KS SH VE RC LC RS SV EN MV ID IH TQ HE AL EY SE TL RE TL SH SR LC OZ MO FG MO TQ HE ON RK LO CR IU SU PH UF HK PZ CL SY OU IL TL SH VH IY IS UW IH NR UY MH DM HY LE YI DU HK LC MK TL VS CS SH HI HU AT DR HY DE IS FV RS PV EY ME NR FR AC FG MO NA MO HE QM DM HY LE YI EP UH MO ON BM RB MK CR PN CA BA AY RP LD IA YE RK EP CR KQ SH YS MO QK SR LD EP NS BY LN BA IS ZE PR YH ON MK CS DE TQ AI YI CZ IH YE AR CL HY SU NO AB RN RK HM QV VD ET OU IL QA CA DO MA SE RD MK CA UF HK OM MA PN AN AC IW IA SK EL YO TE MA EU AC FV CL KS SH AN RC QP HY AY SC BG AI NH CR KQ SH TL UD PW SE SR MZ CR PN AN AZ DP BY UE SI YH KZ UR AT NR HL BE YH KZ UR AT CL SO DL LD RD HI RK LE CZ SH WF RC EN RK AN IC FR RC NR YO AL EY SK IA MA NR TE UF VL EC AM AI DP BY UE SI SK NR SK US SE SR MZ NR HL LC QV PL UF HK IA SK NR SK BH OE PT NR LD EC ID NR QY}
 
-    \lipsum[1] % TODO
+        Известное обращение: \texttt{THETRANSFORMATIONFROMSPEAR}. После восстановления некоторых слов восстановлен исходный текст (пробелы расставлены): 
 
+        \texttt{THE TRANSFORMATION FROM SPEAR TO SWORD BEGAN IN THE 3RD CENTURY BC THE MORE MANEUVERABLE SAMNITES AND GAULS BROKE THEIR HOPLITE PHALANX THE ROMANS DECIDED TO CHANGE THEIR EQUIPMENT NOW ONLY THE BEST MOST EXPERIENCED MEN TRIARII HAD SPEARS ACTING AS A LAST BULWAK AS THEY KEPT THEIR FORMATION THE BEST INSTEAD THE YOUNGER AND LESS EXPERIENCED HASTATI ALTHOUGH THEY INITIALLY CARRIED SPEARS AS HASTA IS THE LATIN WORD FOR SPEAR AND PRINCIPES FOUGHT WITH SWORDS THEY DEVELOPED A NEW AGGRESSIVE FIGHTING STYLE THE DEFENSIVE SHIELD WALL WAS ABANDONED FOR A MORE AGGRESSIVE USE FOR RAMMING INTO ENEMY SOLDIERS AND USING THE SHORT GLADIUS AT EXTREMELY CLOSE RANGE THIS PREVENTED SAMNITE SPEARMEN AND GALLIC SWORDSMEN FROM HAVING ENOUGH ROOM TO MANEUVER THIS WAS COMBINED WITH THE MANIPLE SYSTEM BREAKING THE STIFF PHALANX INTO MANY FLEXIBLE SECTIONS AND SUBSECTIONS IT PAID DIVIDENDS IN THE PUNIC AND MACEDONIAN WARS AS THE ROMANS COULD BE MORE FLEXIBLE THAN THE PHALANX AND STILL TOUGHER THAN THE GAULS AND IBERIANS} 
+
+        Текст описывает, как гастаты вытеснили триариев с передних рядов боевых легионов Римской Республики.
 \end{enumerate}
+
 
 \newpage
 \section*{Выводы}
@@ -502,10 +520,16 @@
         \toprule
         \textbf{Название шифра} & \textbf{Сложность brute force} \\ \midrule
         \textit{Hill} & $ 26^{n^2} $, где $n$ --- размер матрицы. Если неизвестен, то $ n \le \log_{2}(l) $, где $l$ --- длина сообщения \\
-        \textit{ADFGVX} & $ \Factorial{36} \times 36 $ \\
-        \textit{Playfair} & $\Factorial{25}$ \\
+        \textit{ADFGVX} & $ \Factorial{36} \times \Factorial{n} $, где $n$ --- длина ключа. Если неизвестно --- длина сообщения. \\
+        \textit{Playfair} & $\Factorial{m}$, где $m$ --- размер матрицы.  \\
         \bottomrule
     \end{tabularx}
 \end{table}
+
+Шифр Hill --- сложный в использовании из-за обращения матриц. Эту операцию непросто провести вручную (особенно для больших матриц), на вычислительном оборудовании это тоже неэффективно. В то же время, для взлома шифра достаточно решить систему линейных уравнений, зная небольшое количество исходного текста, что является тривиальной задачей.
+
+Шифр ADFGVX --- самый криптоустойчивый из рассмотренных. Его ручной взлом затрудняет его комбинированная структура; однако это возможно. На современном вычислительном оборудовании взлом осуществить легко. Увеличение количества шифротекста облегчает взлом, что свидетельствует о плохой масштабируемости решения.
+
+Шифр Playfair --- самый простой из рассмотренных. Для его взлома достаточно 15--25 символов с начала текста.
 
 \end{document}
