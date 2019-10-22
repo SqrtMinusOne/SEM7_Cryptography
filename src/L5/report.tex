@@ -343,7 +343,41 @@
 \end{enumerate}
 
 \subsection{Ход работы}
-\lipsum[1] %TODO
+\begin{enumerate}
+    \item Найден шаблон атаки в CrypTool 2
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=\textwidth]{img/S016.jpg}
+            \caption{Шаблон атаки в CrypTool 2}%
+            \label{img:c:1}
+        \end{figure}
+    \item Выбран открытый текст: \texttt{The US doesn't care about Taiwan or its people. The objective is to hold Taiwan, along with South Korea and Japan and form a containment barrier that fences China in from projecting its military out into the Pacific. If China is able to break through either Taiwan or Japan, then its navy can have a shot at challenging US dominance of the blue ocean. Hence the question is how much the US is willing to sacrifice along with Japanese and maybe South Korean forces in order to contain China within the East China sea.}
+
+        \texttt{I think all China needs to do in this situation, is build up its forces and wait. Nothing guarantees that South Korea and Japan will be on the same side in 20 years. And since China is at least ten times the size of Japan, I'm not sure Japan would be that enthusiastic about confronting them in 20 years time. That leaves the US.\@ So China's big problem would be how to discourage further US action in its ``turf'' --- i.e.\ making the costs of intervention unacceptably high.}
+    \item Проведена атака на шифр с использованием разного количества ядер
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{@{}llll@{}}
+                \toprule
+ & \textbf{1 ядро} & \textbf{2 ядра} & \textbf{4 ядра} \\ \midrule
+                14 байт & 1 сек & 1 сек & 1 сек \\
+                12 байт & 1.5 часа & 47 мин & 22 мин \\
+                10 байт & 10 лет & 5.5 лет & 3 года \\ \bottomrule
+            \end{tabular}
+        \end{table}
+    \item Сформировано сообщение в указанном формате. В качестве оценочной функции использовано выражение \enquote{DEAR SIRS}. Оценка времени атаки:
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{@{}llll@{}}
+                \toprule
+ & \textbf{1 ядро} & \textbf{2 ядра} & \textbf{4 ядра} \\ \midrule
+                14 байт & 1 сек & 1 сек & 1 сек \\
+                12 байт & 21 мин & 12 мин & 7 мин \\
+                10 байт & 3 года & 1.4 года & 310 дней \\ \bottomrule
+            \end{tabular}
+        \end{table}
+
+\end{enumerate}
 
 \section{Атака предссказанием дополнения на шифр AES}
 \subsection{Формулировка задания}
@@ -358,8 +392,21 @@
 \subsection{Ход работы}
 \lipsum[1] %TODO
 
+\newpage
 \section*{Выводы}
-\lipsum[1] %TODO
+AES --- блоковый симметричный шифр, размер блока --- 128 бит. Шифр основан на подстановчно-перестановочной сети, а не на сети Фейстеля. Количество раундов:
+\begin{itemize}
+    \item 10 для 128-битного ключа
+    \item 12 для 192-битного ключа
+    \item 14 для 256-битного ключа\\
+\end{itemize}
 
+Энтропия текста и сложность атаки грубой силы сопоставима с таковой для других алгоритмов-финалистов конкурса AES, немного лучше показал себя Serpent.
+
+Как шифрование, так и дешифрование AES распаралелливаемо. Благодаря этому атака грубой силы с использование большего количества ядер более эффективна.
+
+Облегчить взлом может использование в качестве оценочной функции части выражения исходного текста (вместо энтропии) и знание части ключа.
+
+Атака предсказанием дополнения в меньшей степени отражает недостатки шифра; она возможна только при его неправильном использовании.
 
 \end{document}
