@@ -157,7 +157,36 @@ MD5 оперирует на $128$-битном состоянии, поделё�
 \end{itemize}
 
 \subsection{Ход работы}
-\lipsum[1] %TODO
+\begin{enumerate}
+    \item Выбран и модифицирован исходный текст длиной 1686 знаков.
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.7\textwidth]{img/S004.jpg}
+            \caption{Исходный текст}%
+            \label{img:s1:1}
+        \end{figure}
+
+    \item С помощью указанной утилиты произведено исследование изменения дайджеста для указанных хэш-функций
+
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{@{}lllll@{}}
+                \toprule
+                    & \textbf{MD5} & \textbf{SHA-1} & \textbf{SHA-256} & \textbf{SHA-512} \\ \midrule
+                \textit{Добавление} & 53.91        & 50.61          & 51.95            & 49.22            \\
+                \textit{Удаление}   & 53.13        & 46.25          & 54.30            & 47.46            \\
+                \textit{Изменение}  & 55.47        & 43.13          & 48.83            & 52.93            \\
+                \textit{Среднее}    & 54.17        & 46.63          & 51.69            & 49.87            \\ \bottomrule
+            \end{tabular}
+        \end{table}
+        
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.7\textwidth]{img/S005.jpg}
+            \caption{Hash Demonstration}%
+            \label{img:}
+        \end{figure}
+\end{enumerate}
 
 \section{Хэш-функция SHA-3}
 \subsection{Описание алгоритма}
@@ -214,7 +243,81 @@ SHA-3 построен на основе криптографической гу
 \end{itemize}
 
 \subsection{Ход работы}
-\lipsum[1] %TODO
+\begin{enumerate}
+    \item Открыт и настроен указанный шаблон с указанным файл
+    \item Проведены преобразования первого раунда
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=\textwidth]{img/S006.jpg}
+            \caption{Первое подмешивание}%
+            \label{img:}
+        \end{figure}
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=\textwidth]{img/S007.jpg}
+            \caption{Структура $f$}%
+        \end{figure}
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=\textwidth]{img/S008.jpg}
+            \caption{$\theta$}%
+        \end{figure}
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=\textwidth]{img/S009.jpg}
+            \caption{$\rho$}%
+        \end{figure}
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=\textwidth]{img/S010.jpg}
+            \caption{$\pi$}%
+        \end{figure}
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=\textwidth]{img/S011.jpg}
+            \caption{$\chi$}%
+        \end{figure}
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=\textwidth]{img/S012.jpg}
+            \caption{$\iota$}%
+        \end{figure}
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=\textwidth]{img/S013.jpg}
+            \caption{Результаты отжатия}%
+        \end{figure}
+
+        \FloatBarrier{}
+    \item Создана автоматизированная процедура для оценки лавинного эффекта. Она представлена на рис.~\ref{img:s2:proc}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=\textwidth]{img/S014.jpg}
+            \caption{Процедура для оценки лавинного эффекта}%
+            \label{img:s2:proc}
+        \end{figure}
+
+        Результаты:
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{@{}ll@{}}
+                \toprule
+                    & \textbf{SHA-3} \\ \midrule
+                \textit{Добавление} & 99.8           \\
+                \textit{Удаление}   & 53.13          \\
+                \textit{Изменение}  & 100            \\
+                \textit{Среднее}    & 99.8           \\ \bottomrule
+            \end{tabular}
+        \end{table}
+
+\end{enumerate}
 
 \section{Контроль целостности по коду HMAC}
 \subsection{Описание механизма}
@@ -232,15 +335,33 @@ HMAC позволяет контролировать целостность да
 \end{itemize}
 
 \subsection{Формулировка задания}
-\begin{itemize}
+\begin{enumerate}
     \item  Выбрать текст на английском языке (не менее 1000 знаков), добавить собственное ФИО и сохранить в файле формата TXT
     \item  Придумать пароль и сгенерировать секретный ключ утилитой Indiv.Procedures->Hash-> Key Generation из Cryptool 1. Сохранить ключ в файле формата TXT.\@ Прочитать Help к этой утилите.
     \item  Сгенерировать HMAC для имеющегося текста и ключа с помощью утилиты Indiv.Procedures->Hash-> Generation of HMACs. Сохранить HMAC в файле формата TXT.\@ Прочитать Help к этой утилите.
     \item  Передать пароль, HMAC (и его характеристики), исходный текст и модифицированный текст коллеге, не раскрывая, какой текст является корректным. Попросите коллегу определить это самостоятельно.
-\end{itemize}
+\end{enumerate}
 
 \subsection{Ход работы}
-\lipsum[1] %TODO
+\begin{enumerate}
+    \item Использован тот же самый текст
+    \item Сгенерирован секретный ключ. Результаты на рис.~\ref{img:s3:1}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.7\textwidth]{img/S015.jpg}
+        \caption{Генерация секретного ключа}%
+        \label{img:s3:1}
+    \end{figure}
+    
+    \FloatBarrier{}
+    \item Сгенерирован HMAC для сообщения
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\textwidth]{img/HMAC.jpg}
+        \caption{Генерация HMAC}%
+    \end{figure}
+    
+\end{enumerate}
 
 \section{Атака дополнительной коллизии на хэш-функции}
 \subsection{Описание атаки}
@@ -268,7 +389,7 @@ HMAC позволяет контролировать целостность да
 
 Пусть $h$ --- хэш-функция. Нужно найти $x_1 \ne x_2$, такие, что $h(x_1) = h(x_2)$. Длина хэш-функции --- $L$.
 
-Сложность такой атаки оценивается как $o(\sqrt{2^L})$
+Сложность такой атаки оценивается как $o(2^{L/2})$
 
 \subsection{Формулировка задания}
 \begin{itemize}
@@ -280,9 +401,75 @@ HMAC позволяет контролировать целостность да
 \end{itemize}
 
 \subsection{Ход работы}
-\lipsum[1] %TODO
+\begin{enumerate}
+    \item Сформированы два текста на английском языке. \\
+        Исходный: \texttt{Russia is still trying to expand its sphere of influence and acquire more buffer states. With the exception of the eastern frontier, where nothing can be done because of China, it has steadily supported a number of allied states like Kazakhstan or managed to force the local power to concede its foreign policy.}
+
+        Модифицированный: \texttt{Russia is not trying to expand its sphere of influence and acquire more buffer states. With the exception of the western frontier, where nothing can be done because of USA, it has steadily helped a number of peaceful states like Belarus or managed to persuade the local power to follow its foreign policy.} 
+    \item Проведена атака на значение хэша для получения совпадения первых 16 бит
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.7\textwidth]{img/S018.jpg}
+            \caption{Статистика атаки}
+        \end{figure}
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=\textwidth]{img/S019.jpg}
+            \caption{Модифицированные тексты}%
+            \label{img:}
+        \end{figure}
+
+        Значения первых двух байт функции MD5 действительно совпадают для обоих текстов.
+    \item Оценено время атаки для разного количества совпадающих бит дайджеста
+
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{@{}ll@{}}
+                \toprule
+                \textbf{Совпадение дайджеста (бит)} & \textbf{Время атаки}   \\ \midrule
+                \textit{8}                          & $0$ с                  \\
+                \textit{16}                         & $0$ с                  \\
+                \textit{24}                         & $0$ с                  \\
+                \textit{32}                         & $1$ с                  \\
+                \textit{40}                         & $7$ с                  \\
+                \textit{48}                         & $2$ мин                \\
+                \textit{56}                         & $24$ мин               \\
+                \textit{64}                         & $6$ часов              \\
+                \textit{72}                         & $4.6$ дня              \\
+                \textit{80}                         & $71.2$ дня             \\
+                \textit{88}                         & $3.2$ года             \\
+                \textit{96}                         & $52$ года              \\
+                \textit{104}                        & $8.2 \bullet 10^2$ лет \\
+                \textit{112}                        & $1.3 \bullet 10^4$ лет \\
+                \textit{120}                        & $2.1 \bullet 10^4$ лет \\
+                \textit{128}                        & $7 \bullet 10^{93}$ лет  \\ \bottomrule
+            \end{tabular}
+        \end{table}
+        \FloatBarrier{}
+\end{enumerate}
 
 \section*{Выводы}
-\lipsum[1] %TODO
+Исследовано применение хэш-функций MD5, SHA-1, SHA-256, SHA-512, SHA-3, контроль целостности по коду HMAC и атака дополнительной коллизии.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{@{}llllll@{}}
+        \toprule
+        \textbf{Хэш-функция}            & \textbf{MD5} & \textbf{SHA-1} & \textbf{SHA-256} & \textbf{SHA-512} & \textbf{SHA-3-512} \\ \midrule % chktex 8
+        \textit{Длина дайджеста}        & 128          & 160            & 256              & 512              & 512                \\
+        \textit{Размер блока обработки} & 128          & 160            & 256              & 512              & 1600               \\
+        \textit{Размер блока}           & 512          & 512            & 512              & 1024             & 576                \\
+        \textit{Число итераций}         & 64           & 80             & 64               & 80               & 24                 \\ \bottomrule
+    \end{tabular}
+\end{table}
+
+Лавинный эффект функций MD5, SHA-1, SHA-256, SHA-512 выражается в том, что при изменении одного символа изменяется примерно $50\%$ дайджеста.
+
+Для функции SHA-3 лавинный эффект выражается в почти полном изменении дайджеста. Для размера выхода до $512$ бит стойкость SHA-3 неотличима от идеальной хэш-функции.
+
+Механизм HMAC может быть использован для контроля целостности данных при передаче по ненадежному каналу, но для этого клиентам нужен общий секретный ключ, который нужно передать по закрытому каналу.
+
+Для хэш-функции с n-битным значением сложность атаки дополнительной коллизии --- поиска двух разных значений с одинаковыми хэш-кодами --- примерно равна $2^{n/2}$
 
 \end{document}
