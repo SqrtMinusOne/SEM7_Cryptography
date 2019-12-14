@@ -1,0 +1,116 @@
+\documentclass[a4paper, 14pt]{extarticle}
+
+\usepackage{../generalPreamble}
+\usepackage{../reportFormat}
+\usepackage{../sourceCode}
+
+\begin{document}
+\begin{titlepage}
+    \centering
+    {\bfseries
+        \uppercase{
+            Минобрнауки России \\
+            Санкт-Петербургский государственный \\
+            Электротехнический университет \\
+            \enquote{ЛЭТИ} им. В.И.Ульянова (Ленина)\\
+        }
+        Кафедра МО ЭВМ
+
+        \vspace{\fill}
+        \uppercase{Отчёт} \\
+        по лабораторной работе №8 \\
+        по дисциплине \enquote{Криптография и защита информации} \\
+        Тема: Изучение цифровой подписи
+    }
+
+    \vspace{\fill}
+    \begin{tabularx}{0.8\textwidth}{l X c r}
+        Студент гр. 6304 & & \underline{\hspace{3cm}} & Корытов П.В.\\
+        Преподаватель & & \underline{\hspace{3cm}} & Племянников А.К.
+    \end{tabularx}
+
+    \vspace{1cm}
+    Санкт-Петербург \\
+    \the\year{}
+\end{titlepage}
+\section*{Цель работы}
+Исследовать алгоритмы создания и проверки цифровой подписи, алгоритмы генерации ключевых пар RSA, DSA, ECDSA и получить практические навыки работы с ними, в том числе и в программном продукте CrypTool 1.
+
+\section{Генераторы ключевых пар}
+\subsection{Основные теоретические положения}
+\lipsum[1] %TODO
+
+\subsection{Формулировка задания}
+\begin{enumerate}
+    \item Перейти к утилите «Digital Signatures/PKI->PKI/Generate…».
+    \item Сгенерировать ключевые пары по алгоритмам RSA-2048, DSA-2048, EC-239. Зафиксируйте время генерации в таблице.
+    \item С помощью утилиты «Digital Signatures/PKI-> PKI/Display…» вывести сгенерированный открытый ключ и сохранить соответствующий скриншот.
+\end{enumerate}
+
+\subsection{Выполнение задания}
+\lipsum[1] %TODO
+
+\section{Процессы создания и проверки цифровой подписи}
+\subsection{Основые теоретические положения}
+\lipsum[1] %TODO
+
+\subsection{Формулировка задания}
+\begin{enumerate}
+    \item Открыть текст не менее 5000 знаков. Перейти к приложению Digital Signatures/PKI-> Sign Document…
+    \item Задайте хэш-функцию, и другие параметры цифровой подписи.
+    \item Создайте подпись ключами, сгенерированными в предыдущем задании. Зафиксируйте время создания цифровой подписи для каждого ключа.
+    \item Сохраните скриншот цифровой подписи с помощью приложения Digital Signatures/PKI-> Extract Signature.
+    \item Выполните процедуру проверки подписи Digital Signatures/PKI-> Verify Signature для случаев сохранения и нарушения целостности исходного текста. Сохраните скриншоты результатов.
+\end{enumerate}
+
+\subsection{Ход работы}
+\lipsum[1] %TODO
+
+\section{Схемы цифровой подписи на эллиптических кривых}
+\subsection{Основые теоретические положения}
+\lipsum[1] %TODO
+
+\subsection{Формулировка задания}
+\begin{enumerate}
+    \item Выполните процедуру создание подписи «Digital Signatures/PKI-> Sign Document…» алгоритмом ECSP-DSA в пошаговом режиме (Display inter.results=ON). Зафиксируйте скриншоты последовательности шагов.
+    \item Выполните процедуру проверки подписи ECSP-DSA для случаев сохранения и нарушения целостности исходного текста. Сохраните скриншоты результатов.
+    \item Проверить лекционный материал по ECDSA, выполнив создание и проверку подписи сообщения M (принять $M=h(M)$) приложением Indiv.Procedures->Number Theory->Point Addition on EC.\@
+\end{enumerate}
+
+\subsection{Ход работы}
+\lipsum[1] %TODO
+
+\section{Демострация процесса подписи в среде PKI}
+\subsection{Основые теоретические положения}
+\lipsum[1] %TODO
+
+\subsection{Формулировка задания}
+\begin{enumerate}
+    \item Запустить демонстрационную утилиту «Digital Signatures/PKI-> Signature Demonstration…».
+    \item Получите сертификат на ранее сгенерированную ключевую пару RSA-2048.
+    \item Выполните и сохраните скриншоты всех этапов создания цифровой подписи документа.
+    \item Сохраните скриншот сертификата для проверки этой цифровой подписи
+\end{enumerate}
+
+\subsection{Ход работы}
+\lipsum[1] %TODO
+
+\section{Подписание своего отчёта}
+\subsection{Формулировка задания}
+\begin{enumerate}
+    \item Сконвертируйте отчёт в формат pdf
+    \item Экспортируйте ранее созданный сертификат ключевой пары RSA Digital Signatures/PKI->PKI/Generate…->Export PSE (\#PKCS12).
+    \item Откройте pdf-версию отчета и попытайтесь подписать с использованием этого сертификата.
+    \item Создайте собственный самоподписанный сертификат в среде Adobe Reader и используйте его для подписи отчета.
+    \item Сохраните скриншоты свойст подписи и сертификата
+    \item Внесите изменения (маркеры, комментарии) в отчёт и проверьте подпись.
+\end{enumerate}
+
+\subsection{Ход работы}
+\lipsum[1] %TODO
+
+\clearpage
+\section{Выводы}
+\lipsum[1] %TODO
+
+\end{document}
